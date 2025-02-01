@@ -1,4 +1,9 @@
-static class Pair{
+import java.util.*;
+
+class Solution {
+    // Function to return a list of nodes visible from the top view
+    // from left to right in Binary Tree.
+    static class Pair{
         Node node;
         int hd;
         Pair(Node node,int hd){
@@ -32,3 +37,5 @@ static class Pair{
         }
         arr.addAll(h.values());
         return arr;
+    }
+}
