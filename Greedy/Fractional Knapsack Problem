@@ -1,0 +1,32 @@
+class Solution {
+    static class Item{
+        int value,weight;
+        double ratio;
+        Item(int value,int weight){
+            this.value=value;
+            this.weight=weight;
+            this.ratio=value/weight;
+        }
+
+    }
+    public double fractionalKnapsack(int[] val, int[] wt, long cap) {
+        // Your code goes here
+        List<Item> items=new ArrayList<>();
+        for(int i=0;i<val.length;i++){
+            items.add(new Item(val[i],wt[i]));
+        }
+        items.sort((a,b)->Double.compare(b.ratio,a.ratio));
+        double total=0.0;
+        for(Item it:items){
+            if(it.weight<=cap){
+                total+=it.value;
+                cap=cap-it.weight;
+            }
+            else{
+                total+=(cap)*(it.ratio);
+            }
+        }
+        return total;
+
+    }
+}
